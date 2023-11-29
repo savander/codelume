@@ -1,19 +1,25 @@
 <template>
   <div>
-    <router-link
+    <RouterLink
       to="/"
-      class="flex bg-sky-700 px-4 py-2 text-white sm:px-8 sm:py-3"
+      class="flex bg-sky-600 hover:bg-sky-700 px-4 py-2 text-white sm:px-8 sm:py-3"
+      exact-active-class="bg-sky-700"
     >
       Home
-    </router-link>
+    </RouterLink>
 
-    <router-link
+    <RouterLink
       to="/info"
       class="flex bg-sky-600 px-4 py-2 text-white hover:bg-sky-700 sm:px-8 sm:py-3"
+      exact-active-class="bg-sky-700"
     >
-      About</router-link
-    >
+      About
+    </RouterLink>
 
     <slot></slot>
   </div>
 </template>
+
+<script setup lang="ts">
+import { RouterLink } from "vue-router";
+</script>
