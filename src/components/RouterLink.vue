@@ -5,7 +5,8 @@
 </template>
 
 <script setup lang="ts">
-import { RouteName, useRouting } from "@/store/Routing";
+import { RouteName } from "@/routes/routes";
+import { useRouting } from "@/store/Routing";
 
 interface Props {
   to: RouteName;
