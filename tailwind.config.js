@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: 'FiraSans'
+        sans: ["FiraSans", ...defaultTheme.fontFamily.sans],
       },
     },
   },

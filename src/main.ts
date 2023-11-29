@@ -2,7 +2,6 @@ import { createApp } from "vue";
 import { createPinia } from "pinia";
 import { createRouter, createWebHistory } from "vue-router";
 import { routes } from "@/routes/routes";
-import "@/fonts.css";
 import "@/main.css";
 import App from "@/App.vue";
 
