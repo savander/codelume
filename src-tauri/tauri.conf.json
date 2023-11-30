@@ -6,21 +6,16 @@
     "distDir": "../dist"
   },
   "package": {
-    "productName": "codelume",
-    "version": "0.0.0"
+    "productName": "codelume"
   },
   "tauri": {
     "allowlist": {
-      "all": false,
-      "shell": {
-        "all": false,
-        "open": true
-      }
+      "all": false
     },
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.tauri.dev",
+      "identifier": "com.codrig.codelume",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
@@ -34,11 +29,13 @@
     },
     "windows": [
       {
-        "fullscreen": false,
+        "title": "CodeLume",
+        "width": 1280,
+        "height": 720,
+        "center": true,
         "resizable": true,
-        "title": "codelume",
-        "width": 800,
-        "height": 600
+        "fullscreen": false,
+        "fileDropEnabled": false
       }
     ]
   }
