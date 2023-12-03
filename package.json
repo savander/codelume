@@ -10,7 +10,9 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@formkit/auto-animate": "^0.8.1",
     "@tauri-apps/api": "^1.5.1",
+    "@vueuse/core": "^10.6.1",
     "pinia": "^2.1.7",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
