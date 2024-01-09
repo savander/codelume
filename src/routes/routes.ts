@@ -1,10 +1,10 @@
-import Home from "@/routes/Home.vue";
+import Feed from "@/routes/Feed.vue";
 import Info from "@/routes/Info.vue";
 
 export const routes = [
   {
     path: "/",
-    component: Home,
+    component: Feed,
   },
   {
     path: "/info",

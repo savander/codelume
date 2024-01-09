@@ -20,8 +20,9 @@ pub async fn init(app: AppHandle) -> std::io::Result<()> {
             .app_data(tauri_app.clone())
             .wrap(middleware::Logger::default())
             .service(handlers::api::post_logs_handle)
+            .service(handlers::api::get_availability_check_handle)
     })
-    .bind(("127.0.0.1", 4875))?
+    .bind(("0.0.0.0", 23517))?
     .run()
     .await
 }
