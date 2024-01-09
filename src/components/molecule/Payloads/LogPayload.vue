@@ -1,6 +1,6 @@
 <template>
   <div
-      class="flex w-full"
+      class="flex w-full whitespace-pre"
       v-for="log in props.payload.content.values" v-html="log"
   >
   </div>
