@@ -4,8 +4,6 @@
 mod server;
 use std::thread;
 
-use tauri::Manager;
-
 #[derive(Clone, serde::Serialize)]
 struct Payload {
     message: String,
