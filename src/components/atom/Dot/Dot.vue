@@ -1,5 +1,5 @@
 <template>
-  <div :class="[...classes.main, colors[color]]"></div>
+  <div :class="[...classes.main, colors[props.color]]"></div>
 </template>
 
 <script setup lang="ts">
