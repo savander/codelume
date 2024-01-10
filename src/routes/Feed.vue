@@ -1,31 +1,38 @@
 <template>
-  <div class="flex gap-x-2 p-2 justify-center border-b relative">
-    <button
-        v-for="filter in filters"
-        class="px-2 py-1 text-sm border rounded-md hover:opacity-80 transition-opacity"
-        :class="filter.classes"
-        @click="filterByColor = filter.color"
-        v-text="filter.label"
-    />
-
-    <div class="absolute right-0 top-0 h-full p-2 pl-5 bg-gradient-to-r from-transparent to-white">
+  <div
+      class="grid grid-cols-1 grid-rows-[auto_1fr] max-h-screen"
+  >
+    <div ref="header" class="flex gap-x-2 p-2 justify-center border-b relative w-full bg-white">
       <button
-          class="px-2 py-1 text-sm bg-white border rounded-md hover:opacity-80 transition-opacity"
-          @click="() => store.clearAll()"
-      >
-        Clear All
-      </button>
+          v-for="filter in filters"
+          class="px-2 py-1 text-sm border rounded-md hover:opacity-80 transition-opacity"
+          :class="filter.classes"
+          @click="filterByColor = filter.color"
+          v-text="filter.label"
+      />
+
+      <div class="absolute right-0 top-0 h-full p-2 pl-5 bg-gradient-to-r from-transparent to-white">
+        <button
+            class="px-2 py-1 text-sm bg-white border rounded-md hover:opacity-80 transition-opacity"
+            @click="() => store.clearAll()"
+        >
+          Clear All
+        </button>
+      </div>
     </div>
 
+    <ul
+        class="overflow-y-auto"
+        ref="feed"
+        v-auto-animate
+    >
+      <FeedLine
+          v-for="feedLine in feedLinesComputed"
+          :key="feedLine.uuid"
+          :feed-line="feedLine"
+      />
+    </ul>
   </div>
-
-  <ul ref="feed" v-auto-animate>
-    <FeedLine
-        v-for="feedLine in feedLinesComputed"
-        :key="feedLine.uuid"
-        :feed-line="feedLine"
-    />
-  </ul>
 </template>
 
 <script setup lang="ts">
@@ -36,6 +43,7 @@ import { computed, nextTick, ref, watch } from 'vue'
 import { Color } from '@/types'
 
 const feed = ref<HTMLElement | null>(null);
+const header = ref<HTMLElement | null>(null);
 const store = useFeedStore();
 const { feedLines } = storeToRefs(useFeedStore());
 
@@ -92,7 +100,11 @@ const feedLinesComputed = computed(() => {
 // Scroll to bottom when new feed line is added
 watch(feedLines.value, () => {
   nextTick(() => {
-    feed.value?.lastElementChild?.scrollIntoView({ behavior: 'smooth' });
+    feed.value?.lastElementChild
+        ?.getElementsByClassName('cl-anchor')[0]
+        ?.scrollIntoView({
+          behavior: 'smooth',
+        });
   });
 });
 </script>
