@@ -1,6 +1,6 @@
 <template>
   <div
-      class="grid grid-cols-1 grid-rows-[auto_1fr] max-h-screen"
+      class="grid grid-cols-1 grid-rows-[auto_1fr] max-h-screen h-screen"
   >
     <div ref="header" class="flex gap-x-2 p-2 justify-center border-b relative w-full bg-white">
       <button
@@ -22,8 +22,8 @@
     </div>
 
     <ul
-        class="overflow-y-auto"
         ref="feed"
+        class="overflow-y-auto overflow-x-hidden"
         v-auto-animate
     >
       <FeedLine
@@ -99,7 +99,10 @@ const feedLinesComputed = computed(() => {
 
 // Scroll to bottom when new feed line is added
 watch(feedLines.value, () => {
+  console.log({ feed: feed.value });
+
   nextTick(() => {
+    // console.log(feed.value);
     feed.value?.lastElementChild
         ?.getElementsByClassName('cl-anchor')[0]
         ?.scrollIntoView({

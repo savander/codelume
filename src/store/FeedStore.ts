@@ -67,7 +67,7 @@ export const useFeedStore = defineStore("feedLines", () => {
   }
 
   const clearAll = () => {
-    feedLines.value = []
+    feedLines.value.splice(0, feedLines.value.length)
   }
 
   return {
