@@ -5,6 +5,7 @@ export enum PayloadType {
   Text = 'text',
   Log = 'log',
   Color = 'color',
+  ClearAll = 'clear_all',
 }
 
 export interface CustomPayload extends Payload {

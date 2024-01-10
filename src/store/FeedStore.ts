@@ -32,7 +32,7 @@ export const useFeedStore = defineStore("feedLines", () => {
     console.log({ feedLine });
 
     // If the feed line is a color feed line, we update the current color
-    if (isColorFeed(feedLine)) {
+    if (hasPayloadType(feedLine, PayloadType.Color)) {
       const color = feedLine.payloads[0].content.color as Color
 
       // We update the color of the previous feed line
@@ -44,6 +44,12 @@ export const useFeedStore = defineStore("feedLines", () => {
       return
     }
 
+    // If the feed line is a clear all feed line, we clear all the feed lines
+    if (hasPayloadType(feedLine, PayloadType.ClearAll)) {
+      clearAll()
+      return
+    }
+
     feedLine.created_at = new Date()
     feedLine.color = defaultColor
 
@@ -51,8 +57,8 @@ export const useFeedStore = defineStore("feedLines", () => {
     feedLines.value.push(feedLine);
   };
 
-  const isColorFeed = (feedLine: FeedLine) => {
-    return feedLine.payloads.some((payload) => payload.type === PayloadType.Color)
+  const hasPayloadType = (feedLine: FeedLine, type: PayloadType) => {
+    return feedLine.payloads.some((payload) => payload.type === type)
   }
 
   const findFeedLine = (uuid: string) => {
@@ -60,9 +66,14 @@ export const useFeedStore = defineStore("feedLines", () => {
     return feedLines.value.find((feedLine) => feedLine.uuid === uuid)
   }
 
+  const clearAll = () => {
+    feedLines.value = []
+  }
+
   return {
     feedLines,
 
     addFeed,
+    clearAll,
   };
 });

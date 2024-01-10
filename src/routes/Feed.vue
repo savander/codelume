@@ -1,46 +1,22 @@
 <template>
-  <div class="flex gap-x-2 mt-2 mb-2">
+  <div class="flex gap-x-2 p-2 justify-center border-b relative">
     <button
-        class="bg-gray-100 border-gray-200 p-2 rounded-md"
-        @click="currentColor = null"
-    >
-      All
-    </button>
+        v-for="filter in filters"
+        class="px-2 py-1 text-sm border rounded-md hover:opacity-80 transition-opacity"
+        :class="filter.classes"
+        @click="filterByColor = filter.color"
+        v-text="filter.label"
+    />
 
-    <button
-        class="bg-red-100 border-red-200 px-4 py-2 rounded-md"
-        @click="currentColor = Color.Red"
-    >
-      Red
-    </button>
+    <div class="absolute right-0 top-0 h-full p-2 pl-5 bg-gradient-to-r from-transparent to-white">
+      <button
+          class="px-2 py-1 text-sm bg-white border rounded-md hover:opacity-80 transition-opacity"
+          @click="() => store.clearAll()"
+      >
+        Clear All
+      </button>
+    </div>
 
-    <button
-        class="bg-green-100 border-green-200 px-4 py-2 rounded-md"
-        @click="currentColor = Color.Green"
-    >
-      Green
-    </button>
-
-    <button
-        class="bg-blue-100 border-blue-200 px-4 py-2 rounded-md"
-        @click="currentColor = Color.Blue"
-    >
-      Blue
-    </button>
-
-    <button
-        class="bg-orange-100 border-orange-200 px-4 py-2 rounded-md"
-        @click="currentColor = Color.Orange"
-    >
-      Orange
-    </button>
-
-    <button
-        class="bg-purple-100 border-purple-200 px-4 py-2 rounded-md"
-        @click="currentColor = Color.Purple"
-    >
-      Purple
-    </button>
   </div>
 
   <ul ref="feed" v-auto-animate>
@@ -60,17 +36,56 @@ import { computed, nextTick, ref, watch } from 'vue'
 import { Color } from '@/types'
 
 const feed = ref<HTMLElement | null>(null);
+const store = useFeedStore();
 const { feedLines } = storeToRefs(useFeedStore());
 
-const currentColor = ref<Color | null>(null)
+
+const filters = {
+  all: {
+    classes: 'border-gray-200 text-gray-500',
+    color: null,
+    label: 'All',
+  },
+  gray: {
+    classes: 'bg-gray-100 border-gray-200 text-gray-500',
+    color: Color.Gray,
+    label: 'Gray',
+  },
+  red: {
+    classes: 'bg-red-100 border-red-200 text-red-500',
+    color: Color.Red,
+    label: 'Red',
+  },
+  green: {
+    classes: 'bg-green-100 border-green-200 text-green-500',
+    color: Color.Green,
+    label: 'Green',
+  },
+  blue: {
+    classes: 'bg-blue-100 border-blue-200 text-blue-500',
+    color: Color.Blue,
+    label: 'Blue',
+  },
+  orange: {
+    classes: 'bg-orange-100 border-orange-200 text-orange-500',
+    color: Color.Orange,
+    label: 'Orange',
+  },
+  purple: {
+    classes: 'bg-purple-100 border-purple-200 text-purple-500',
+    color: Color.Purple,
+    label: 'Purple',
+  },
+}
+const filterByColor = ref<Color | null>(null)
 
 const feedLinesComputed = computed(() => {
-  if (currentColor.value === null) {
+  if (filterByColor.value === null) {
     return feedLines.value;
   }
 
   return feedLines.value.filter((feedLine) => {
-    return feedLine.color === currentColor.value;
+    return feedLine.color === filterByColor.value;
   });
 });
 
