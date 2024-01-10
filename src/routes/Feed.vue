@@ -99,8 +99,6 @@ const feedLinesComputed = computed(() => {
 
 // Scroll to bottom when new feed line is added
 watch(feedLines.value, () => {
-  console.log({ feed: feed.value });
-
   nextTick(() => {
     // console.log(feed.value);
     feed.value?.lastElementChild
