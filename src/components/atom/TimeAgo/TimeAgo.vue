@@ -31,7 +31,7 @@ const colors = {
   [Color.Blue]: 'bg-blue-100 border-blue-200',
   [Color.Orange]: 'bg-orange-100 border-orange-200',
   [Color.Purple]: 'bg-purple-100 border-purple-200',
-  [Color.Gray]: 'bg-gray-100 border-gray-200',
+  [Color.Gray]: 'bg-gray-50 border-gray-200',
 }
 
 const classes = {

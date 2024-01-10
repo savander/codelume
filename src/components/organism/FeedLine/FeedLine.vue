@@ -1,7 +1,7 @@
 <template>
   <li class="grid grid-cols-[200px_1fr] border-b relative">
     <!-- Anchor for scroll, 25px is ideal -->
-    <div class="cl-anchor absolute top-[-25px] left-0"></div>
+    <div class="cl-anchor absolute h-[28px] top-[-28px] left-0 pointer-events-none"></div>
 
     <div class="flex justify-between">
       <div class="flex items-center pl-4">
@@ -37,8 +37,10 @@ import { PayloadType } from '@/components/molecule/Payloads/PayloadsDefinition.t
 import TextPayload from '@/components/molecule/Payloads/TextPayload.vue'
 import LogPayload from '@/components/molecule/Payloads/LogPayload.vue'
 import CustomPayload from '@/components/molecule/Payloads/CustomPayload.vue'
-import TimeAgo from '@/components/atom/Dot/TimeAgo.vue'
+import TimeAgo from '@/components/atom/TimeAgo/TimeAgo.vue'
 import TablePayload from '@/components/molecule/Payloads/TablePayload.vue'
+import ApplicationLogPayload from '@/components/molecule/Payloads/ApplicationLogPayload.vue'
+import TracePayload from '@/components/molecule/Payloads/TracePayload.vue'
 
 interface FeedLineProps {
   feedLine: FeedLine
@@ -47,10 +49,12 @@ interface FeedLineProps {
 const props: FeedLineProps = defineProps<FeedLineProps>()
 
 const payloads: { [key in string]: any } = {
-  [PayloadType.Custom]: CustomPayload,
   [PayloadType.Text]: TextPayload,
-  [PayloadType.Log]: LogPayload,
   [PayloadType.Table]: TablePayload,
+  [PayloadType.Log]: LogPayload,
+  [PayloadType.ApplicationLog]: ApplicationLogPayload,
+  [PayloadType.Trace]: TracePayload,
+  [PayloadType.Custom]: CustomPayload,
 }
 
 const getPayloadComponent = (payloadType: PayloadType) => {

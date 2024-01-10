@@ -4,3 +4,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/*
+ * sf-dump styles :)
+ */
+.sf-dump {
+    @apply rounded w-full p-3 text-sm bg-gray-100 !important;
+    @apply text-orange-500 !important;
+}
+
+.sf-dump .sf-dump-protected, .sf-dump .sf-dump-private, .sf-dump .sf-dump-public {
+    @apply text-orange-500 !important;
+}
+
+.sf-dump .sf-dump-default {
+    @apply  bg-gray-100 !important;
+}

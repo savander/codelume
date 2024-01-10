@@ -6,10 +6,14 @@ export enum PayloadType {
   ClearAll = 'clear_all',
 
   // Content
-  Custom = 'custom',
   Text = 'text',
-  Log = 'log',
   Table = 'table',
+
+  Log = 'log',
+  ApplicationLog = 'application_log',
+  Trace = 'trace',
+
+  Custom = 'custom',
 }
 
 export interface CustomPayload extends Payload {
@@ -36,4 +40,22 @@ export interface LogPayload extends Payload {
   }
 }
 
+export interface ApplicationLogPayload extends Payload {
+  content: {
+    context: string,
+    value: string,
+  }
+}
+
+export interface TracePayload extends Payload {
+  content: {
+    frames: {
+      class: string,
+      file_name: string,
+      line_number: number,
+      method: string,
+      vendor_frame: boolean,
+    }[],
+  }
+}
 
