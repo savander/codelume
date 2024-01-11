@@ -12,6 +12,7 @@ export enum PayloadType {
   Log = 'log',
   ApplicationLog = 'application_log',
   Trace = 'trace',
+  EloquentModel = 'eloquent_model',
 
   Custom = 'custom',
 }
@@ -56,6 +57,14 @@ export interface TracePayload extends Payload {
       method: string,
       vendor_frame: boolean,
     }[],
+  }
+}
+
+export interface EloquentModelPayload extends Payload {
+  content: {
+    attributes: string,
+    class_name: string,
+    relations: string,
   }
 }
 
