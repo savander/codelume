@@ -1,6 +1,6 @@
 ![CodeLume Logo](public/codelume-banner.png)
 
-# CodeLume
+# CodeLume [![publish](https://github.com/savander/codelume/actions/workflows/publish-to-auto-release.yml/badge.svg?branch=release)](https://github.com/savander/codelume/actions/workflows/publish-to-auto-release.yml)
 
 CodeLume is an open-source, minimalist alternative to the [Ray app](https://myray.app), offering essential features for developers to effectively analyze and understand their application's behavior. It's designed to be a lightweight, yet powerful tool for logging and debugging.
 
