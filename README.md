@@ -1,16 +1,38 @@
-# Tauri + Vue 3 + TypeScript
+![CodeLume Logo](public/codelume-banner.png)
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# CodeLume
 
-## Recommended IDE Setup
+CodeLume is an open-source, minimalist alternative to the [Ray app](https://myray.app), offering essential features for developers to effectively analyze and understand their application's behavior. It's designed to be a lightweight, yet powerful tool for logging and debugging.
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+> [!CAUTION]
+> CodeLume is currently in early development. Features may change, and functionality may be unstable.
 
-## Type Support For `.vue` Imports in TS
+## Features
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's Take Over mode by following these steps:
+- **Ray Drop-In Replacement**: Seamlessly integrates with existing setups using Ray.
+- **Data Type Support**: Handles arrays, JSON, objects, and more with ease.
+- **Application Logs**: Captures and displays logs in a clear, concise manner.
+- **Backtrace Support**: Offers in-depth backtrace to track down the source of issues.
+- **Color Coding & Filtering**: Enhance log readability with color coding and easy filtering.
+- **Rich Content Display**: Supports HTML, tables, and plain text for versatile log presentation.
+- **Eloquent Model Handling**: Effortlessly display Eloquent model attributes and loaded relationships.
 
-1. Run `Extensions: Show Built-in Extensions` from VS Code's command palette, look for `TypeScript and JavaScript Language Features`, then right click and select `Disable (Workspace)`. By default, Take Over mode will enable itself if the default TypeScript extension is disabled.
-2. Reload the VS Code window by running `Developer: Reload Window` from the command palette.
+## Upcoming Features
 
-You can learn more about Take Over mode [here](https://github.com/johnsoncodehk/volar/discussions/471).
+- **CodeLume's Own Library**: In the future, CodeLume will introduce its own dedicated library to further enhance the user experience and feature set.
+
+## Getting Started
+
+To get started with CodeLume, clone the repository. For building the application, refer to the Tauri build tutorial available at [Tauri's official guide](https://tauri.app/v1/guides/building/).
+
+## Contributing
+
+Contributions to CodeLume are welcome! Whether it's feature enhancements, bug fixes, or documentation improvements, your help is appreciated.
+
+## License
+
+CodeLume is released under the [Apache-2.0 License](LICENSE).
+
+## Acknowledgments
+
+Special thanks to the team at [myray.app](https://myray.app) for their library, which inspired the creation of CodeLume.
