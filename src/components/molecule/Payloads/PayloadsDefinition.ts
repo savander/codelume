@@ -11,6 +11,7 @@ export enum PayloadType {
 
   Log = 'log',
   ApplicationLog = 'application_log',
+  JsonString = 'json_string',
   Exception = 'exception',
   Trace = 'trace',
   EloquentModel = 'eloquent_model',
@@ -45,6 +46,12 @@ export interface LogPayload extends Payload {
 export interface ApplicationLogPayload extends Payload {
   content: {
     context: string,
+    value: string,
+  }
+}
+
+export interface JsonStringPayload extends Payload {
+  content: {
     value: string,
   }
 }

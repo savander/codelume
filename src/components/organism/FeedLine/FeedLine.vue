@@ -43,6 +43,7 @@ import ApplicationLogPayload from '@/components/molecule/Payloads/ApplicationLog
 import TracePayload from '@/components/molecule/Payloads/TracePayload.vue'
 import EloquentModelPayload from '@/components/molecule/Payloads/EloquentModelPayload.vue'
 import ExceptionPayload from '@/components/molecule/Payloads/ExceptionPayload.vue'
+import JsonStringPayload from '@/components/molecule/Payloads/JsonStringPayload.vue'
 
 interface FeedLineProps {
   feedLine: FeedLine
@@ -55,6 +56,7 @@ const payloads: { [key in string]: any } = {
   [PayloadType.Table]: TablePayload,
   [PayloadType.Log]: LogPayload,
   [PayloadType.ApplicationLog]: ApplicationLogPayload,
+  [PayloadType.JsonString]: JsonStringPayload,
   [PayloadType.Exception]: ExceptionPayload,
   [PayloadType.EloquentModel]: EloquentModelPayload,
   [PayloadType.Trace]: TracePayload,
