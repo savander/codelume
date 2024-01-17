@@ -11,6 +11,7 @@ export enum PayloadType {
 
   Log = 'log',
   ApplicationLog = 'application_log',
+  Exception = 'exception',
   Trace = 'trace',
   EloquentModel = 'eloquent_model',
 
@@ -45,6 +46,20 @@ export interface ApplicationLogPayload extends Payload {
   content: {
     context: string,
     value: string,
+  }
+}
+
+export interface ExceptionPayload extends Payload {
+  content: {
+    class: string,
+    message: string,
+    frames: {
+      class: string,
+      file_name: string,
+      line_number: number,
+      method: string,
+      vendor_frame: boolean,
+    }[],
   }
 }
 

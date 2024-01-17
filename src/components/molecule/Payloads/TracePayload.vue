@@ -4,7 +4,8 @@
         class="font-mono"
         v-for="(frame, id) in props.payload.content.frames"
     >
-      {{ id + 1 }}.
+      #{{ id + 1 }}.
+
       <span
           :class="frame.vendor_frame ? classes.vendor : classes.nonVendor"
           :title="frame.file_name + ':' + frame.line_number"

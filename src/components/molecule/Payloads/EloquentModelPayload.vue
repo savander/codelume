@@ -1,7 +1,7 @@
 <template>
   <div>
     <span
-        class="block text-lg font-bold text-gray-800 mb-3"
+        class="block text-xl font-bold text-gray-800 mb-3"
         v-html="props.payload.content.class_name"
     />
 
