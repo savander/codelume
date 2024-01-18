@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { listen } from '@tauri-apps/api/event'
-import DefaultTemplate from "@/templates/DefaultTemplate.vue";
 import { RouterView } from "vue-router";
 import { FeedLine, useFeedStore } from '@/store/FeedStore.ts';
 
@@ -13,7 +12,5 @@ listen('post-feeds', (event) => {
 </script>
 
 <template>
-  <DefaultTemplate>
-    <RouterView />
-  </DefaultTemplate>
+  <RouterView />
 </template>

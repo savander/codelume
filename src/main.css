@@ -5,6 +5,18 @@
 @tailwind components;
 @tailwind utilities;
 
+html.dark {
+    @apply text-slate-300;
+}
+
+.content-container {
+    overflow: auto;
+    width: 100vw;
+    max-width: 100vw;
+    height: calc(100vh - 64px);
+    max-height: calc(100vh - 64px);
+}
+
 /*
  * sf-dump styles :)
  */

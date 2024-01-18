@@ -1,29 +1,21 @@
 <template>
-  <li class="grid grid-cols-[200px_1fr] border-b relative">
-    <!-- Anchor for scroll, 25px is ideal -->
-    <div class="cl-anchor absolute h-[28px] top-[-28px] left-0 pointer-events-none"></div>
-
-    <div class="flex justify-between">
-      <div class="flex items-center pl-4">
-        <Dot :color="feedLine.color" />
-      </div>
-
-      <TimeAgo :color="feedLine.color" :date="props.feedLine.created_at" />
+  <li class="flex w-full border-b dark:border-b-slate-800">
+    <div
+        :class="colors[props.feedLine.color].border"
+        class="flex justify-end items-start shrink-0 w-64 max-w-64 px-5 py-2.5 border-r-4"
+    >
+      <TimeAgo :date="props.feedLine.created_at" />
     </div>
 
-    <div class="p-4 break-all">
+    <div class="px-5 py-2.5">
       <template v-for="payload in props.feedLine.payloads">
         <component
             :is="getPayloadComponent(payload.type)"
             :payload="payload"
         />
 
-        <div>
-          <hr class="mb-2 mt-4" />
-
-          <span class="text-xs text-gray-500">
-            {{ payload.origin.file }}:{{ payload.origin.line_number }}
-          </span>
+        <div class="text-xs text-gray-400 mt-2.5">
+          {{ payload.origin.file }}:{{ payload.origin.line_number }}
         </div>
       </template>
     </div>
@@ -31,19 +23,19 @@
 </template>
 
 <script setup lang="ts">
-import Dot from '@/components/atom/Dot/Dot.vue'
 import { FeedLine } from '@/store/FeedStore.ts'
 import { PayloadType } from '@/components/molecule/Payloads/PayloadsDefinition.ts'
 import TextPayload from '@/components/molecule/Payloads/TextPayload.vue'
 import LogPayload from '@/components/molecule/Payloads/LogPayload.vue'
 import CustomPayload from '@/components/molecule/Payloads/CustomPayload.vue'
-import TimeAgo from '@/components/atom/TimeAgo/TimeAgo.vue'
 import TablePayload from '@/components/molecule/Payloads/TablePayload.vue'
 import ApplicationLogPayload from '@/components/molecule/Payloads/ApplicationLogPayload.vue'
 import TracePayload from '@/components/molecule/Payloads/TracePayload.vue'
 import EloquentModelPayload from '@/components/molecule/Payloads/EloquentModelPayload.vue'
 import ExceptionPayload from '@/components/molecule/Payloads/ExceptionPayload.vue'
 import JsonStringPayload from '@/components/molecule/Payloads/JsonStringPayload.vue'
+import TimeAgo from '@/components/atom/TimeAgo/TimeAgo.vue'
+import { Color } from '@/types'
 
 interface FeedLineProps {
   feedLine: FeedLine
@@ -61,6 +53,30 @@ const payloads: { [key in string]: any } = {
   [PayloadType.EloquentModel]: EloquentModelPayload,
   [PayloadType.Trace]: TracePayload,
   [PayloadType.Custom]: CustomPayload,
+}
+
+const colors = {
+  [Color.Clear]: {
+    border: [],
+  },
+  [Color.Gray]: {
+    border: ['dark:border-slate-800'],
+  },
+  [Color.Red]: {
+    border: ['border-red-600'],
+  },
+  [Color.Green]: {
+    border: ['border-green-500'],
+  },
+  [Color.Blue]: {
+    border: ['border-blue-500'],
+  },
+  [Color.Orange]: {
+    border: ['border-orange-500'],
+  },
+  [Color.Purple]: {
+    border: ['border-purple-500'],
+  },
 }
 
 const getPayloadComponent = (payloadType: PayloadType) => {

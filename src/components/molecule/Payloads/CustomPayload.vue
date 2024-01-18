@@ -1,5 +1,5 @@
 <template>
-  <span v-html="props.payload.content.content" />
+  <div v-html="props.payload.content.content" v-inline-children/>
 </template>
 
 <script setup lang="ts">

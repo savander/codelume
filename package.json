@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@formkit/auto-animate": "^0.8.1",
+    "@headlessui/vue": "^1.7.17",
     "@heroicons/vue": "^2.1.1",
     "@tauri-apps/api": "^1.5.1",
     "@vueuse/core": "^10.6.1",
