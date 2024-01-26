@@ -25,7 +25,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { Switch } from '@headlessui/vue'
 import { MoonIcon, SunIcon } from '@heroicons/vue/16/solid'
 import { ref, watch } from 'vue'

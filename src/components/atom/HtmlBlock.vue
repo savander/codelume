@@ -21,7 +21,7 @@ onMounted(() => {
   for (const script of scripts) {
     const newScript = document.createElement('script');
     newScript.textContent = script.textContent;
-    document.body.appendChild(newScript).parentNode.removeChild(newScript);
+    document.body?.appendChild(newScript)?.parentNode?.removeChild(newScript);
   }
 })
 </script>
