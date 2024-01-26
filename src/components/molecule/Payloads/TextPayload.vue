@@ -1,7 +1,7 @@
 <template>
-  <span>
+  <div>
     {{ props.payload.content.content }}
-  </span>
+  </div>
 </template>
 
 <script setup lang="ts">

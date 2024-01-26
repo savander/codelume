@@ -1,16 +1,17 @@
 <template>
   <div>
-    <span
-        class="block text-lg font-bold text-gray-800 mb-3"
+    <HtmlBlock
+        class="block mb-3 feedback-heading"
         v-html="props.payload.content.value"
     />
 
-    <code v-html="props.payload.content.context" />
+    <HtmlBlock v-html="props.payload.content.context" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { ApplicationLogPayload } from '@/components/molecule/Payloads/PayloadsDefinition.ts'
+import HtmlBlock from '@/components/atom/HtmlBlock.vue'
 
 interface ApplicationLogPayloadProps {
   payload: ApplicationLogPayload
