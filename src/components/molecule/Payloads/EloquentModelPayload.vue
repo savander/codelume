@@ -11,7 +11,7 @@
       Attributes:
     </span>
 
-    <code
+    <HtmlBlock
         v-html="props.payload.content.attributes"
     />
 
@@ -22,12 +22,13 @@
       Relations:
     </span>
 
-    <code v-if="props.payload.content.relations" v-html="props.payload.content.relations" />
+    <HtmlBlock v-if="props.payload.content.relations" v-html="props.payload.content.relations" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { EloquentModelPayload } from '@/components/molecule/Payloads/PayloadsDefinition.ts'
+import HtmlBlock from '@/components/atom/HtmlBlock.vue'
 
 interface EloquentModelPayloadProps {
   payload: EloquentModelPayload

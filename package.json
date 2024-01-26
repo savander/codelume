@@ -1,7 +1,7 @@
 {
   "name": "codelume",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.1.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -16,7 +16,9 @@
     "@tauri-apps/api": "^1.5.1",
     "@vueuse/components": "^10.7.2",
     "@vueuse/core": "^10.7.2",
+    "jquery": "^3.7.1",
     "pinia": "^2.1.7",
+    "superfish": "^1.7.10",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
   },
