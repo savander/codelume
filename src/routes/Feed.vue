@@ -13,7 +13,7 @@
     </template>
 
     <template #default>
-      <ul ref="feed" v-auto-animate>
+      <ul class="min-w-min" ref="feed" v-auto-animate>
         <FeedLine
             v-for="feedLine in feedLinesComputed"
             :key="feedLine.uuid"

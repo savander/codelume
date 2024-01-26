@@ -15,6 +15,7 @@ export enum PayloadType {
   Exception = 'exception',
   Trace = 'trace',
   EloquentModel = 'eloquent_model',
+  ExecutedQuery = 'executed_query',
 
   Custom = 'custom',
 }
@@ -67,6 +68,7 @@ export interface ExceptionPayload extends Payload {
       method: string,
       vendor_frame: boolean,
     }[],
+    meta?: Array<any> | Object | any,
   }
 }
 
@@ -90,3 +92,8 @@ export interface EloquentModelPayload extends Payload {
   }
 }
 
+export interface ExecutedQueryPayload extends Payload {
+  content: {
+    sql: string,
+  }
+}

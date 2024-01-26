@@ -1,7 +1,7 @@
 <template>
   <div>
     <span
-        class="block text-lg font-bold text-gray-800 mb-3"
+        class="block mb-3 feedback-heading"
         v-html="props.payload.content.value"
     />
 

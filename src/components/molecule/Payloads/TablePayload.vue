@@ -4,11 +4,27 @@
       {{ props.payload.content.label }}
     </template>
 
+    <template #header>
+      <TableCol class="text-left font-bold border-r border-slate-200 dark:border-slate-700">
+        Key
+      </TableCol>
+
+      <TableCol class="text-left font-bold">
+        Value
+      </TableCol>
+    </template>
+
     <template #default>
       <tr v-for="(value, id) in props.payload.content.values" :key="id">
-        <TableCol v-html="id" bold />
+        <TableCol
+            class="html-content font-bold border-r border-slate-200 dark:border-slate-700"
+            v-html="id"
+        />
 
-        <TableCol v-html="value" />
+        <TableCol
+            class="html-content"
+            v-html="value"
+        />
       </tr>
     </template>
   </Table>

@@ -33,20 +33,19 @@ export const useFeedStore = defineStore("feedLines", () => {
 
     // If the feed line is a color feed line, we update the current color
     if (hasPayloadType(feedLine, PayloadType.Color)) {
-      const color = feedLine.payloads[0].content.color as Color
-
-      // We update the color of the previous feed line
-      const foundFeedLine = findFeedLine(feedLine.uuid);
-      if (foundFeedLine) {
-        foundFeedLine.color = color
-      }
-
+      colorizeFeedLine(feedLine.uuid, feedLine.payloads[0].content.color as Color)
       return
     }
 
     // If the feed line is a clear all feed line, we clear all the feed lines
     if (hasPayloadType(feedLine, PayloadType.ClearAll)) {
       clearAll()
+      return
+    }
+
+    // If the feed line already exists, we merge the payloads, always last
+    if (findFeedLine(feedLine.uuid)) {
+      mergeFeedLine(feedLine)
       return
     }
 
@@ -61,13 +60,34 @@ export const useFeedStore = defineStore("feedLines", () => {
     return feedLine.payloads.some((payload) => payload.type === type)
   }
 
-  const findFeedLine = (uuid: string) => {
-    // return feedLines.value.findIndex((feedLine) => feedLine.uuid === uuid)
-    return feedLines.value.find((feedLine) => feedLine.uuid === uuid)
+  const colorizeFeedLine = (uuid: string, color: Color) => {
+    const feedLine = findFeedLine(uuid);
+
+    if (! feedLine) {
+      return
+    }
+
+    feedLine.color = color
   }
 
   const clearAll = () => {
     feedLines.value.splice(0, feedLines.value.length)
+  }
+
+  const mergeFeedLine = (newFeedLine: FeedLine) => {
+    const feedLine = findFeedLine(newFeedLine.uuid);
+
+    if (! feedLine) {
+      return
+    }
+
+    feedLine.payloads.push(...newFeedLine.payloads)
+  }
+
+  const findFeedLine = (uuid: string) => {
+    return feedLines.value.find(
+      (feedLine) => feedLine.uuid === uuid
+    )
   }
 
   return {

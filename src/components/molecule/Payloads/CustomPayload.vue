@@ -1,5 +1,8 @@
 <template>
-  <div v-html="props.payload.content.content" v-inline-children/>
+  <div
+      class="html-content"
+      v-html="props.payload.content.content"
+  />
 </template>
 
 <script setup lang="ts">

@@ -1,19 +1,27 @@
 <template>
   <div>
     <span
-        class="block text-xl font-bold text-gray-800 mb-3"
+        class="block mb-3 feedback-heading"
         v-html="props.payload.content.class_name"
     />
 
-    <span class="block text-sm font-bold text-gray-800 mb-3">Attributes:</span>
-    <code v-html="props.payload.content.attributes" />
+    <span
+        class="block mb-3 text-sm font-bold"
+    >
+      Attributes:
+    </span>
+
+    <code
+        v-html="props.payload.content.attributes"
+    />
 
     <span
-        class="block text-sm font-bold text-gray-800 mb-3 mt-3"
+        class="block mb-3 mt-3 text-sm font-bold "
         v-if="props.payload.content.relations"
     >
       Relations:
     </span>
+
     <code v-if="props.payload.content.relations" v-html="props.payload.content.relations" />
   </div>
 </template>
