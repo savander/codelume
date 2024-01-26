@@ -11,8 +11,11 @@ export enum PayloadType {
 
   Log = 'log',
   ApplicationLog = 'application_log',
+  JsonString = 'json_string',
+  Exception = 'exception',
   Trace = 'trace',
   EloquentModel = 'eloquent_model',
+  ExecutedQuery = 'executed_query',
 
   Custom = 'custom',
 }
@@ -48,6 +51,27 @@ export interface ApplicationLogPayload extends Payload {
   }
 }
 
+export interface JsonStringPayload extends Payload {
+  content: {
+    value: string,
+  }
+}
+
+export interface ExceptionPayload extends Payload {
+  content: {
+    class: string,
+    message: string,
+    frames: {
+      class: string,
+      file_name: string,
+      line_number: number,
+      method: string,
+      vendor_frame: boolean,
+    }[],
+    meta?: Array<any> | Object | any,
+  }
+}
+
 export interface TracePayload extends Payload {
   content: {
     frames: {
@@ -68,3 +92,8 @@ export interface EloquentModelPayload extends Payload {
   }
 }
 
+export interface ExecutedQueryPayload extends Payload {
+  content: {
+    sql: string,
+  }
+}

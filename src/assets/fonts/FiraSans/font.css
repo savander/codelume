@@ -7,7 +7,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans SemiBold Italic"), local("FiraSans-SemiBoldItalic"),
@@ -17,7 +17,7 @@
     font-style: italic;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans Bold Italic"), local("FiraSans-BoldItalic"),
@@ -26,7 +26,7 @@
     font-style: italic;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans ExtraBold Italic"), local("FiraSans-ExtraBoldItalic"),
@@ -36,7 +36,7 @@
     font-style: italic;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans Light Italic"), local("FiraSans-LightItalic"),
@@ -45,7 +45,7 @@
     font-style: italic;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans Regular"), local("FiraSans-Regular"),
@@ -54,17 +54,17 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans SemiBold"), local("FiraSans-SemiBold"),
-      url("FiraSans/FiraSans-SemiBold.ttf")
+      url("FiraSans-SemiBold.ttf")
         format("truetype");
     font-weight: 600;
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans Medium Italic"), local("FiraSans-MediumItalic"),
@@ -73,7 +73,7 @@
     font-style: italic;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans ExtraLight Italic"), local("FiraSans-ExtraLightItalic"),
@@ -83,7 +83,7 @@
     font-style: italic;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans ExtraLight"), local("FiraSans-ExtraLight"),
@@ -92,7 +92,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans Medium"), local("FiraSans-Medium"),
@@ -101,7 +101,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans ExtraBold"), local("FiraSans-ExtraBold"),
@@ -110,7 +110,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans Italic"), local("FiraSans-Italic"),
@@ -119,7 +119,7 @@
     font-style: italic;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans Black Italic"), local("FiraSans-BlackItalic"),
@@ -128,7 +128,7 @@
     font-style: italic;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans Bold"), local("FiraSans-Bold"),
@@ -137,7 +137,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans Black"), local("FiraSans-Black"),
@@ -146,7 +146,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans Thin"), local("FiraSans-Thin"),
@@ -155,7 +155,7 @@
     font-style: normal;
     font-display: swap;
   }
-  
+
   @font-face {
     font-family: "FiraSans";
     src: local("FiraSans Thin Italic"), local("FiraSans-ThinItalic"),
@@ -164,4 +164,3 @@
     font-style: italic;
     font-display: swap;
   }
-  

@@ -28,3 +28,7 @@ app.use(router);
 app.use(autoAnimatePlugin);
 
 app.mount("#app");
+
+app.directive('inline-children', element => {
+  element.replaceWith(...element.children);
+})
