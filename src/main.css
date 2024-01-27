@@ -13,6 +13,45 @@ html.dark {
     @apply text-slate-300;
 }
 
+/*
+ * Scrollbar
+ */
+::-webkit-scrollbar {
+    @apply w-3 h-3;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-slate-100;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-xl;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400;
+}
+
+::-webkit-scrollbar-corner {
+    @apply bg-slate-100;
+}
+
+html.dark ::-webkit-scrollbar-track {
+    @apply bg-slate-800;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+    @apply bg-slate-700;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-600;
+}
+
+html.dark ::-webkit-scrollbar-corner {
+    @apply bg-slate-800;
+}
+
 .feedback-heading {
     @apply text-xl font-bold text-slate-800 dark:text-slate-300;
 }
